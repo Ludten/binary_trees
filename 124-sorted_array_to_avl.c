@@ -22,6 +22,8 @@ avl_t *sorted_array_avl(int *array, int start, int end, avl_t *root)
 
 	mid = (start + end) / 2;
 	root = binary_tree_node(root, array[mid]);
+	if (root == NULL)
+		return (NULL);
 
 	root->left = sorted_array_avl(array, start, mid - 1, root);
 	root->right = sorted_array_avl(array, mid + 1, end, root);
