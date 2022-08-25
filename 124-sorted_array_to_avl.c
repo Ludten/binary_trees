@@ -14,6 +14,9 @@ avl_t *sorted_array_avl(int *array, int start, int end, avl_t *root)
 {
 	int mid;
 
+	if (array == NULL)
+		return (NULL);
+
 	if (start > end)
 		return (NULL);
 
@@ -36,11 +39,10 @@ avl_t *sorted_array_avl(int *array, int start, int end, avl_t *root)
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-	avl_t *root;
+	avl_t *root = NULL;
 
 	if (array == NULL)
 		return (NULL);
 
-	root = NULL;
 	return (sorted_array_avl(array, 0, (int)size - 1, root));
 }
