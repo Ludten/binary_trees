@@ -9,11 +9,13 @@
  */
 size_t binary_height(const binary_tree_t *node)
 {
+	int lheight, rheight;
+
 	if (node == NULL)
 		return (0);
 
-	int lheight = binary_height(node->left);
-	int rheight = binary_height(node->right);
+	lheight = binary_height(node->left);
+	rheight = binary_height(node->right);
 
 	if (lheight > rheight)
 		return (lheight + 1);
