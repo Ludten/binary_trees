@@ -8,7 +8,7 @@
  */
 bst_t *minValueNode(bst_t *node)
 {
-	bst_t * curr = node;
+	bst_t *curr = node;
 
 	while (curr && curr->left != NULL)
 		curr = curr->left;
@@ -41,13 +41,13 @@ bst_t *bst_remove(bst_t *root, int value)
 		{
 			temp = root->right;
 			free(root);
-			return temp;
+			return (temp);
 		}
 		else if (root->right == NULL)
 		{
 			temp = root->left;
 			free(root);
-			return temp;
+			return (temp);
 		}
 		temp = minValueNode(root->right);
 		root->n = temp->n;
