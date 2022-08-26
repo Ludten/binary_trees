@@ -64,7 +64,6 @@ int maxheap(const binary_tree_t *tree)
 	if ((tree->left && (tree->left->n >= tree->n)) ||
 	(tree->right && (tree->right->n >= tree->n)))
 	{
-		printf("%d\n", tree->left->n);
 		return (0);
 	}
 	return (maxheap(tree->left) && maxheap(tree->right));
