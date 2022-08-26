@@ -49,3 +49,42 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 	size = binary_tree_size(tree);
 	return (is_complete(tree, 0, size));
 }
+
+/**
+ * maxheap - checks if a node data is greater than
+ * its childremn
+ *
+ * @tree: tree node
+ * Return: 0 or 1
+ */
+int maxheap(const binary_tree_t *tree)
+{
+	if (tree == NULL)
+		return (1);
+	if ((tree->left && (tree->left->n >= tree->n)) ||
+	(tree->right && (tree->right->n >= tree->n)))
+	{
+		printf("%d\n", tree->left->n);
+		return (0);
+	}
+	return (maxheap(tree->left) && maxheap(tree->right));
+}
+
+/**
+ * binary_tree_is_heap - check if a binary tree is a max
+ * heap
+ *
+ * @tree: tree
+ * Return: 0 or 1
+ */
+int binary_tree_is_heap(const binary_tree_t *tree)
+{
+	if (tree == NULL)
+		return (0);
+
+	if (binary_tree_is_complete(tree))
+	{
+		return (maxheap(tree));
+	}
+	return (0);
+}
